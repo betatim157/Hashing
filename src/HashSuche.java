@@ -1,7 +1,7 @@
 public class HashSuche {
-    private int[] zahlen = new int [10];
-    private double[] zahlen1 = new double[10];
-    private int mod = 10;
+    private final int[] zahlen = new int [10];
+    private final double[] zahlen1 = new double[10];
+    private final int mod = 10;
 
    public HashSuche(){
 
@@ -36,4 +36,9 @@ public class HashSuche {
      }
      return k;
     }
+    public void showarray(){
+        System.out.println(java.util.Arrays.toString(zahlen));
+        System.out.println(java.util.Arrays.toString(zahlen1));
+       }
+
 }
