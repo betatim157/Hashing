@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Main extends JFrame{
 
@@ -22,11 +23,14 @@ public class Main extends JFrame{
      JFrame f = new JFrame();
      f.setTitle("HashSuche");
      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-     f.setSize(1300,1100);
+     f.setSize(2600,1100);
+     f.setResizable(false);
      f.setLocation(50,50);
      f.setVisible(true);
-
-
+     f.setLayout(new FlowLayout(FlowLayout.CENTER,40,0));
+     JPanel panel = new JPanel();
+     panel.setPreferredSize(new Dimension(2600,500));
+     f.add(panel);
 
      //Erstellung des Strings
         String[] LabelName = new String[10];
@@ -37,20 +41,54 @@ public class Main extends JFrame{
             LabelName1[i] = s.gibWert(i);
         }
         //Erstellung des visuellen Arrays
+        JLabel[] bilder = new JLabel[10];
         JLabel[] zahlen = new JLabel[10];
         JLabel[] zahlen1 = new JLabel[10];
+
+
+        for(int p = 0; p<zahlen.length; p++){
+            zahlen[p] = new JLabel();
+            zahlen1[p] = new JLabel();
+            bilder[p] = new JLabel();
+        }
         int x = 40;
-        for(int i= 0; i<zahlen.length; i++)
+
+        for(int i = 0; i<zahlen.length; i++)
+        {
+            //Icons
+            x = x+30;
+            bilder[i].setIcon(new ImageIcon("Person.jpg"));
+            bilder[i].setPreferredSize(new Dimension(200, 40));
+            bilder[i].setHorizontalTextPosition(SwingConstants.CENTER);
+            bilder[i].setVerticalAlignment(SwingConstants.CENTER);
+            f.add(bilder[i]);
+        }
+
+        for(int i= 0; i<zahlen.length; i++) {
+            x = x + 30;
+
+            //Schlüssel
+            zahlen[i].setText(LabelName[i]);
+            zahlen[i].setPreferredSize(new Dimension(200, 40));
+            zahlen[i].setFont(new Font(null, Font.PLAIN, 30));
+            zahlen[i].setHorizontalTextPosition(SwingConstants.CENTER);
+            zahlen[i].setVerticalAlignment(SwingConstants.CENTER);
+            f.add(zahlen[i]);
+        }
+
+        for(int i = 0; i< zahlen1.length; i++)
         {
             x= x+30;
-          zahlen[i].setText(LabelName[i]);
-          zahlen[i].setSize(100,80);
-          zahlen[i].setVisible(true);
-          zahlen[i].setHorizontalTextPosition(x);
-          zahlen[i].setVerticalAlignment(JLabel.CENTER);
-          f.add(zahlen[i]);
-
+          //Werte
+          zahlen1[i].setText(LabelName1[i]);
+          zahlen1[i].setPreferredSize(new Dimension (200, 40));
+          zahlen1[i].setFont(new Font(null,Font.PLAIN,30));
+          zahlen1[i].setHorizontalTextPosition(SwingConstants.CENTER);
+          zahlen1[i].setVerticalAlignment(SwingConstants.CENTER);
+          f.add(zahlen1[i]);
         }
+
+
     }
 
 }
