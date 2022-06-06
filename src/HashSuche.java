@@ -66,16 +66,24 @@ public class HashSuche {
     public String gibSchlüssel(int Stelle)
     {
         int i = zahlen[Stelle];
-        String Value = Integer.toString(i);
-       return Value;
+        if(i == 0){
+            return "Null";
+        }else {
+            String Value = Integer.toString(i);
+            return Value;
+        }
     }
 
    //Relevant für Gui
     public String gibWert(int Stelle)
     {
         double d = zahlen1[Stelle];
-        String Value = Double.toString(d);
-        return Value;
+        if(d == 0){
+           return "Null";
+        }else{
+            String Value = Double.toString(d);
+            return Value;
+        }
     }
 
     public void showarray(){

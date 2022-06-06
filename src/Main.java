@@ -27,6 +27,7 @@ public class Main extends JFrame{
      f.setVisible(true);
 
 
+
      //Erstellung des Strings
         String[] LabelName = new String[10];
         String[] LabelName1 = new String[10];
@@ -38,11 +39,16 @@ public class Main extends JFrame{
         //Erstellung des visuellen Arrays
         JLabel[] zahlen = new JLabel[10];
         JLabel[] zahlen1 = new JLabel[10];
+        int x = 40;
         for(int i= 0; i<zahlen.length; i++)
         {
+            x= x+30;
           zahlen[i].setText(LabelName[i]);
           zahlen[i].setSize(100,80);
           zahlen[i].setVisible(true);
+          zahlen[i].setHorizontalTextPosition(x);
+          zahlen[i].setVerticalAlignment(JLabel.CENTER);
+          f.add(zahlen[i]);
 
         }
     }
